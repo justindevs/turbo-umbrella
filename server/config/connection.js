@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const mongoString = process.env.MONGODB_URI ? `${process.env.MONGODB_URI}/googlebooks` : 'mongodb://localhost/googlebooks';
+const mongoString = process.env.MONGODB_URI ? `${process.env.MONGODB_URI}` : 'mongodb://localhost/googlebooks';
 
 console.log(mongoString)
 
