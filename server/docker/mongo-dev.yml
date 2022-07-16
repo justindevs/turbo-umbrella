@@ -1,0 +1,19 @@
+# This configuration is intended for development purposes only
+version: '3.8'
+services:
+  turbo-umbrella-mongodb:
+    image: mongo:4.4.12
+    # If you want to expose these ports outside your dev PC,
+    # remove the "127.0.0.1:" prefix
+    ports:
+      - 127.0.0.1:27017:27017
+    command: mongos --configdb csvr/turbo-umbrella-mongodb-config --bind_ip 0.0.0.0
+  turbo-umbrella-mongodb-node:
+    build:
+      context: .
+      dockerfile: mongodb/MongoDB.Dockerfile
+    command: mongod --shardsvr --replSet rs1
+  turbo-umbrella-mongodb-config:
+    image: mongo:4.4.12
+    container_name: turbo-umbrella-mongodb-config
+    command: mongod --configsvr --dbpath /data/db --replSet csvr

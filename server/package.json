@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "watch": "nodemon server.js"
+    "watch": "nodemon server.js",
+    "docker:db:down": "docker-compose -f ./docker/mongo-dev.yml down -v",
+    "docker:db:up": "docker-compose -f ./docker/mongo-dev.yml up -d"
   },
   "keywords": [],
   "author": "",
