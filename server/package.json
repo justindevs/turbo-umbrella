@@ -6,13 +6,14 @@
   "scripts": {
     "start": "node server.js",
     "watch": "nodemon server.js",
-    "docker:db:down": "docker-compose -f ./docker/mongo-dev.yml down -v",
-    "docker:db:up": "docker-compose -f ./docker/mongo-dev.yml up -d"
+    "docker:db:down": "docker-compose -f ./docker/mongodb.yml down -v --remove-orphans",
+    "docker:db:up": "docker-compose -f ./docker/mongodb.yml up -d"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "apollo-server-express": "^3.10.0",
     "bcrypt": "^5.0.0",
     "express": "^4.17.1",
     "graphql": "^15.5.0",
